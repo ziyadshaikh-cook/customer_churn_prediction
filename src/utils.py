@@ -46,7 +46,7 @@ def evaluate_models(X_train, y_train, X_test, y_test, models, params):
             param_grid = params.get(model_name, {})
 
             # GridSearchCV with F1 as the scoring metric (correct for imbalanced data)
-            gs = GridSearchCV(model, param_grid, cv=3, scoring="f1", n_jobs=-1)
+            gs = GridSearchCV(model, param_grid, cv=3, scoring="f1", n_jobs=1)
             gs.fit(X_train, y_train)
 
             # Use best estimator found by GridSearchCV
