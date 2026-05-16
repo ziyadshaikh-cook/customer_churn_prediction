@@ -120,6 +120,10 @@ class DataTransformation:
             )
             logging.info(f"Preprocessor saved to: {self.data_transformation_config.preprocessor_obj_file_path}")
 
+            np.save(os.path.join("artifacts", "train_arr.npy"), train_arr)
+            np.save(os.path.join("artifacts", "test_arr.npy"), test_arr)
+            logging.info("Train and test arrays saved to artifacts/")
+
             return (
                 train_arr,
                 test_arr,
